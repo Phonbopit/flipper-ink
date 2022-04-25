@@ -32,3 +32,24 @@ Your contract artifacts are ready. You can find them in:
   - flipper.wasm (the contract's code)
   - metadata.json (the contract's metadata)
 ```
+
+Start Substrate node
+
+```
+substrate-contracts-node --dev
+```
+
+Deploy contract with [contract-ui](https://paritytech.github.io/contracts-ui/)
+
+## Makefile
+
+```
+make test name=flipper
+make test name=incrementer
+```
+
+## How to use mapping?
+
+1. Add `SpreadAllocate` trait on the storage structure.
+2. Specific key, value and dont forget to add derive `#[derive(SpreadAllocate)]`
+3. Call `ink_lang::utils::initialize_contract` to initialize mapping.
